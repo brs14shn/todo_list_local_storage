@@ -4,7 +4,11 @@
 
 const addBtn=document.getElementById("todo-button");
 const todoInput=document.getElementById("todo-input")
-const todoUl=document.querySelector("#todo-ul")
+const todoUl=document.querySelector("#todo-ul");
+
+let todos=[];
+
+
 
 
 window.onload=function(){
