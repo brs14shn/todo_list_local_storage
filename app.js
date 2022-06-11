@@ -32,3 +32,15 @@ todoInput.addEventListener("keydown",(e)=>{
    }
 
 })
+
+//* ============capturing================*/
+
+todoUl.addEventListener("click",(e)=>{
+   if(e.target.classList.contains("fa-trash")){
+    e.target.parentElement.remove();
+   }
+   if(e.target.classList.contains("fa-check")){
+    e.target.parentElement.remove();
+   }
+
+})
