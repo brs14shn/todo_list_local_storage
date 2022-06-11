@@ -6,7 +6,23 @@ const addBtn=document.getElementById("todo-button");
 const todoInput=document.getElementById("todo-input")
 const todoUl=document.querySelector("#todo-ul");
 
-let todos=[];
+let todos=JSON.parse(localStorage.getItem("todos")) || [];
+
+renderSavedTodos();
+
+
+function renderSavedTodos(){
+   todos.forEach((todo)=>{
+    const {id,content,isDone}=todo;
+    todoUl.innerHTML +=
+        `<li>
+        <i class="fa fa-check"></i>
+        <p>${todo.content}</p>
+        <i class="fa fa-trash"></i>
+        </li>`
+
+   })
+}
 
 
 
@@ -22,16 +38,26 @@ addBtn.addEventListener("click",(e)=>{
     if(!todoInput.value){
         alert("Please enter your todo")
     }else{
-    //console.log(todoInput.value);
-    todoUl.innerHTML +=
-    `<li>
-    <i class="fa fa-check"></i>
-    <p>${todoInput.value}</p>
-    <i class="fa fa-trash"></i>
-    </li>`
-    todoInput.value="";
-    }
-   
+        const todoObject={
+            id:new Date().getTime(),
+            isDone:false,
+            content:todoInput.value
+
+        };
+        todos.push(todoObject);
+       
+        localStorage.setItem("todos",JSON.stringify(todos))
+      
+
+        todoUl.innerHTML +=
+        `<li>
+        <i class="fa fa-check"></i>
+        <p>${todoInput.value}</p>
+        <i class="fa fa-trash"></i>
+        </li>`
+        todoInput.value="";
+        }
+    
 
 })
 
