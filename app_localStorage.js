@@ -27,13 +27,8 @@ function createListElement(){
     
 }
 
-
-
-
 window.onload=function(){
     todoInput.focus();
-
-
 }
 
 addBtn.addEventListener("click",(e)=>{
@@ -60,7 +55,6 @@ addBtn.addEventListener("click",(e)=>{
         </li>`
         todoInput.value="";
         }
-    
 
 })
 
@@ -70,7 +64,6 @@ todoInput.addEventListener("keydown",(e)=>{
    }
 
 })
-
 //* ============capturing================*/
 
 todoUl.addEventListener("click",(e)=>{
